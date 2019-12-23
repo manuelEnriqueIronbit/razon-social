@@ -20,11 +20,21 @@ class BusinessName extends LitElement {
   render() {
     return html`
     <table>
+      <thead>
+        <tr>
+          <th>Razón social</th>
+          <th>RFC</th>
+          <th>Estatus</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+           
       <tr>
-        <th>Razón social</th>
-        <th>RFC</th>
-        <th>Estatus</th>
-        <th>Acciones</th>
+        <th>Grupo Slim</th>
+        <th>GS2892</th>
+        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
+        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
       </tr>
       <tr>
         <th>Grupo Slim</th>
@@ -32,7 +42,26 @@ class BusinessName extends LitElement {
         <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
         <th><iron-icon icon="vaadin:edit"></iron-icon></th>
       </tr>
+      <tr>
+        <th>Grupo Slim</th>
+        <th>GS2892</th>
+        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
+        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+      </tr>
+      <tr>
+        <th>Grupo Slim</th>
+        <th>GS2892</th>
+        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
+        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+      </tr> <tr>
+        <th>Grupo Slim</th>
+        <th>GS2892</th>
+        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
+        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+      </tr>
 
+      </tbody>
+    
     </table>
         
 

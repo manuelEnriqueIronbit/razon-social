@@ -12,7 +12,7 @@
   box-sizing: inherit;
   font-family: inherit;
 }
-table, th, td {
+/* table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -23,4 +23,38 @@ th, td {
 table#t01 {
   width: 100%;    
   background-color: #f1f1c1;
+} */
+table{
+  border-spacing:0;
+  width: 508px;
+  thead{
+    background-image: linear-gradient(180deg, #00EFD1 0%, #00ACEA 100%);
+    padding: 0;
+    color: #ffffff;
+    #business-name{
+      width: 110px;
+      text-align: left;
+    }
+    #rfc{
+      width: 145x;
+
+    }
+    #status{
+      width:119px;
+    }
+    #action{
+      width: 145px;
+    }
+  }
+  tr:nth-child(even){
+    background-color: #DFDFDF;
+  }
+  tbody{
+    tr{
+      th:nth-child(1){
+        text-align: left;
+      }
+
+    }
+  }
 }
