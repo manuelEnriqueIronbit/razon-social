@@ -3,7 +3,8 @@ import { css } from 'lit-element';
 export default css`
 :host {
   display: inline-block;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  width: 100%; }
 
 :host([hidden]), [hidden] {
   display: none !important; }
@@ -11,4 +12,16 @@ export default css`
 *, *:before, *:after {
   box-sizing: inherit;
   font-family: inherit; }
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse; }
+
+th, td {
+  padding: 15px;
+  text-align: left; }
+
+table#t01 {
+  width: 100%;
+  background-color: #f1f1c1; }
 `;

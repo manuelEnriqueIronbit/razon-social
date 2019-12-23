@@ -1,10 +1,11 @@
 import { html, LitElement } from 'lit-element';
 import style from './business-name-styles.js';
+import '@vaadin/vaadin-icons/vaadin-icons.js';
+
 
 class BusinessName extends LitElement {
   static get properties() {
     return {
-      hello: { type: String }
     };
   }
 
@@ -14,13 +15,27 @@ class BusinessName extends LitElement {
 
   constructor() {
     super();
-    this.hello = 'Hello';
   }
 
   render() {
     return html`
-        <p>Some static DOM</p>
-        <h2>${this.hello} business-name</h2>
+    <table>
+      <tr>
+        <th>Razón social</th>
+        <th>RFC</th>
+        <th>Estatus</th>
+        <th>Acciones</th>
+      </tr>
+      <tr>
+        <th>Grupo Slim</th>
+        <th>GS2892</th>
+        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
+        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+      </tr>
+
+    </table>
+        
+
       `;
     }
 }
