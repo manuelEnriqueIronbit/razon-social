@@ -30,34 +30,32 @@ class BusinessName extends LitElement {
       rfc : rfcInput.value,
       status : statuSelect.options[statuSelect.selectedIndex].value
     }
-    this.businessNameList.push(properties)
     businessNameInput.value ='';
     rfcInput.value='';
     statuSelect.value ='';
-    this.dispatchEvent (new CustomEvent('send-business-name-data',{
+    this.dispatchEvent (new CustomEvent('sendData',{
       detail:properties
     }));
   }
-
-  render() {
+  
+    render() {
     return html`
      <paper-dialog id="addSocialName" modal>
         <h2>Agregar Razón Social</h2>
         <paper-dialog-scrollable>
-        <label for="businessName">Razón Social :</label>
-        <input  id="businessName" type="text"><br>
-        <label for="rfc">RFC :</label>
-        <input  id="rfc" type="text"><br>
-        <label for="status">Estatus:</label>
-
-        <select id="status">
-          <option value="Activo">Activo</option>
-          <option value="Inactivo">Inactivo</option>
-        </select>
+          <label for="businessName">Razón Social :</label>
+          <input  id="businessName" type="text"><br>
+          <label for="rfc">RFC :</label>
+          <input  id="rfc" type="text"><br>
+          <label for="status">Estatus:</label>
+          <select id="status">
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
         </paper-dialog-scrollable>
         <div class="buttons">
         <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
-        <vaadin-button theme="primary"  @click="${this.send}"  dialog-confirm autofocus>Agregar</vaadin-button>
+        <vaadin-button  @click="${this.send}"   dialog-confirm autofocus>Agregar</vaadin-button>
         </div>
     </paper-dialog>
     
@@ -71,44 +69,17 @@ class BusinessName extends LitElement {
         </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>Grupo Slim</td>
-        <td>GS2892</td>
-        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
-        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
-      </tr>
       ${this.businessNameList.map(businessName => {
-        console.log(businessName);
-        if(businessName.status === "active"){
          return html`<tr>
             <td>${businessName.businessName}</td>
             <td>${businessName.rfc}</td>
-              <td>
-                <iron-icon icon="vaadin:check-circle-o">${businessName.status}</iron-icon>
-              </td>
+              <td>${businessName.status ==="active"? html`<iron-icon icon="vaadin:check-circle-o"></iron-icon> ` : html`<iron-icon icon="vaadin:close-circle-o">${businessName.status}</iron-icon>`}</td>
               <th><iron-icon icon="vaadin:edit"></iron-icon></th>
-     
       </tr>`
-        }else if(businessName.status === "inactive"){
-         return html`<tr>
-            <td>${businessName.businessName}</td>
-           <td>${businessName.rfc}</td>
-  
-          <td>
-            <iron-icon icon="vaadin:close">${businessName.status}</iron-icon>
-          </td>
-          <th><iron-icon icon="vaadin:edit"></iron-icon></th>
-
-      </tr>`
-        }
       })}
-      
-
       </tbody>
-    
     </table>
     <button  @click="${this.openDialog}">Agregar</button>
-   
       `;
     }
     openDialog(){
