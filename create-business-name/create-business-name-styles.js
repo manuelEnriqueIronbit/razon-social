@@ -11,4 +11,32 @@ export default css`
 *, *:before, *:after {
   box-sizing: inherit;
   font-family: inherit; }
+
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  padding-left: 100px;
+  left: 0;
+  top: 0;
+  width: 50%;
+  /* Full width */
+  height: 75%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */ }
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; }
 `;

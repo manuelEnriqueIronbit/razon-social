@@ -1,6 +1,7 @@
 import { html, LitElement } from 'lit-element';
 import style from './business-name-styles.js';
-import '@vaadin/vaadin-icons/vaadin-icons.js';
+import '@polymer/paper-dialog/paper-dialog.js';
+import '@vaadin/vaadin-select/vaadin-select.js';
 
 
 class BusinessName extends LitElement {
@@ -19,6 +20,25 @@ class BusinessName extends LitElement {
 
   render() {
     return html`
+     <paper-dialog id="addSocialName" modal>
+        <h2>Agregar Razón Social</h2>
+        <paper-dialog-scrollable>
+        <label for="businessName">Razón Social :</label>
+        <input  id="businessName" type="text"><br>
+        <label for="rfc">RFC :</label>
+        <input  id="rfc" type="text"><br>
+        <label for="status">Estatus:</label>
+
+        <select name="status">
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
+        </select>
+        </paper-dialog-scrollable>
+        <div class="buttons">
+          <paper-button>Agregar</paper-button>
+        </div>
+    </paper-dialog>
+
     <table>
       <thead>
         <tr>
@@ -63,9 +83,12 @@ class BusinessName extends LitElement {
       </tbody>
     
     </table>
-        
-
+    <button  @click="${this.openDialog}">Agregar</button>
+   
       `;
+    }
+    openDialog(){
+      this.shadowRoot.querySelector('#addSocialName').open();
     }
 }
 
