@@ -48,36 +48,37 @@ class BusinessName extends LitElement {
           <th>Acciones</th>
         </tr>
       </thead>
-      <tbody>
+      <tbodyd
            
       <tr>
-        <th>Grupo Slim</th>
-        <th>GS2892</th>
-        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
-        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+        <td>Grupo Slim</td>
+        <td>GS2892</td>
+        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
+        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
       </tr>
       <tr>
-        <th>Grupo Slim</th>
-        <th>GS2892</th>
-        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
-        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+        <td>Grupo Slim</td>
+        <td>GS2892</td>
+        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
+        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
       </tr>
       <tr>
-        <th>Grupo Slim</th>
-        <th>GS2892</th>
-        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
-        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+        <td>Grupo Slim</td>
+        <td>GS2892</td>
+        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
+        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
       </tr>
       <tr>
-        <th>Grupo Slim</th>
-        <th>GS2892</th>
-        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
-        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
-      </tr> <tr>
-        <th>Grupo Slim</th>
-        <th>GS2892</th>
-        <th><iron-icon icon="vaadin:check-circle-o"></iron-icon></th>
-        <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+        <td>Grupo Slim</td>
+        <td>GS2892</td>
+        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
+        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
+      </tr> 
+      <tr>
+        <td>Grupo Slim</td>
+        <td>GS2892</td>
+        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
+        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
       </tr>
 
       </tbody>
