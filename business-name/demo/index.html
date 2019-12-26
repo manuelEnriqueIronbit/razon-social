@@ -8,6 +8,7 @@
         import '../business-name.js';
     </script>
     <title>BusinessName</title>
+
 </head>
 <body>
     <style>
@@ -18,6 +19,36 @@
             flex-direction: column;    
         }
     </style>
-        <business-name></business-name>
+        <business-name ></business-name>
+    <script>
+        const businessNameComponent = document.querySelector('business-name');
+        businessNameComponent.businessNameList =[{
+            businessName: "Grupo Slim",
+            rfc: "GS2892",
+            status: "active"
+        },
+        {
+            businessName: "D. Ex",
+            rfc: "RE3819",
+            status: "active"
+        },
+        {
+            businessName: "Grupo Slim",
+            rfc: "GS2892",
+            status: "active"
+        },
+        {
+            businessName: "Grupo Slim",
+            rfc: "GS2892",
+            status: "inactive"
+        }
+        
+        
+    ]
+    const newBusinessName = document.querySelector('business-name');
+    newBusinessName.addEventListener('send-business-name-data', e =>{
+        console.table(e.detail);
+    })
+    </script>
 </body>
 </html>

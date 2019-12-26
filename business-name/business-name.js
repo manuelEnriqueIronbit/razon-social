@@ -3,11 +3,13 @@ import style from './business-name-styles.js';
 import '@polymer/paper-dialog/paper-dialog.js';
 import '@vaadin/vaadin-select/vaadin-select.js';
 import '@vaadin/vaadin-icons/vaadin-icons.js';
+import '@vaadin/vaadin-grid/vaadin-grid.js';
 
 
 class BusinessName extends LitElement {
   static get properties() {
     return {
+      businessNameList : Array
     };
   }
 
@@ -17,7 +19,9 @@ class BusinessName extends LitElement {
 
   constructor() {
     super();
+    this.businessNameList = [];
   }
+
   send(){
     const [businessNameInput , rfcInput] = this.shadowRoot.querySelectorAll('input');
     const statuSelect= this.shadowRoot.querySelector('#status');
@@ -26,7 +30,7 @@ class BusinessName extends LitElement {
       rfc : rfcInput.value,
       status : statuSelect.options[statuSelect.selectedIndex].value
     }
-    console.log(properties)
+    this.businessNameList.push(properties)
     businessNameInput.value ='';
     rfcInput.value='';
     statuSelect.value ='';
@@ -56,7 +60,7 @@ class BusinessName extends LitElement {
         <vaadin-button theme="primary"  @click="${this.send}"  dialog-confirm autofocus>Agregar</vaadin-button>
         </div>
     </paper-dialog>
-
+    
     <table>
       <thead>
         <tr>
@@ -66,38 +70,39 @@ class BusinessName extends LitElement {
           <th>Acciones</th>
         </tr>
       </thead>
-      <tbodyd
-           
+      <tbody>
       <tr>
         <td>Grupo Slim</td>
         <td>GS2892</td>
         <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
         <td><iron-icon icon="vaadin:edit"></iron-icon></td>
       </tr>
-      <tr>
-        <td>Grupo Slim</td>
-        <td>GS2892</td>
-        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
-        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
-      </tr>
-      <tr>
-        <td>Grupo Slim</td>
-        <td>GS2892</td>
-        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
-        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
-      </tr>
-      <tr>
-        <td>Grupo Slim</td>
-        <td>GS2892</td>
-        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
-        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
-      </tr> 
-      <tr>
-        <td>Grupo Slim</td>
-        <td>GS2892</td>
-        <td><iron-icon icon="vaadin:check-circle-o"></iron-icon></td>
-        <td><iron-icon icon="vaadin:edit"></iron-icon></td>
-      </tr>
+      ${this.businessNameList.map(businessName => {
+        console.log(businessName);
+        if(businessName.status === "active"){
+         return html`<tr>
+            <td>${businessName.businessName}</td>
+            <td>${businessName.rfc}</td>
+              <td>
+                <iron-icon icon="vaadin:check-circle-o">${businessName.status}</iron-icon>
+              </td>
+              <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+     
+      </tr>`
+        }else if(businessName.status === "inactive"){
+         return html`<tr>
+            <td>${businessName.businessName}</td>
+           <td>${businessName.rfc}</td>
+  
+          <td>
+            <iron-icon icon="vaadin:close">${businessName.status}</iron-icon>
+          </td>
+          <th><iron-icon icon="vaadin:edit"></iron-icon></th>
+
+      </tr>`
+        }
+      })}
+      
 
       </tbody>
     
