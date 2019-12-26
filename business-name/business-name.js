@@ -43,15 +43,21 @@ class BusinessName extends LitElement {
      <paper-dialog id="addSocialName" modal>
         <h2>Agregar Razón Social</h2>
         <paper-dialog-scrollable>
+        <div>
           <label for="businessName">Razón Social :</label>
-          <input  id="businessName" type="text"><br>
+          <input  id="businessName" type="text">
+        </div>
+        <div>
           <label for="rfc">RFC :</label>
-          <input  id="rfc" type="text"><br>
+          <input  id="rfc" type="text">
+        </div>
+        <div>
           <label for="status">Estatus:</label>
-          <select id="status">
+          <select id="status" name="status">
             <option value="Activo">Activo</option>
             <option value="Inactivo">Inactivo</option>
           </select>
+        </div>
         </paper-dialog-scrollable>
         <div class="buttons">
         <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
