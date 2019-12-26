@@ -1,7 +1,6 @@
 import { html, LitElement } from 'lit-element';
 import style from './create-business-name-styles.js';
-import '@vaadin/vaadin-text-field/vaadin-text-field.js';
-import '@vaadin/vaadin-select/vaadin-select.js';
+
 class CreateBusinessName extends LitElement {
   static get properties() {
     return {
@@ -17,27 +16,50 @@ class CreateBusinessName extends LitElement {
     super();
     this.hello = 'Hello';
   }
-
+  send(){
+    console.log("Inside send")
+      const [businessNameInput , rfcInput] = this.shadowRoot.querySelectorAll('input');
+    const statuSelect= this.shadowRoot.querySelector('#status');
+    const properties ={
+      businessName : businessNameInput.value,
+      rfc : rfcInput.value,
+      status : statuSelect.options[statuSelect.selectedIndex].value
+    }
+    console.log(properties)
+    businessNameInput.value ='';
+    rfcInput.value='';
+    statuSelect.value ='';
+    this.dispatchEvent (new CustomEvent('send-rfc-data',{
+      detail:properties
+    }));
+  }
   render() {
     return html`
-      <div class="modal">
-        <div class="modal-content">
-          <h2>Agregar Razón Social</h2>
-          <vaadin-text-field label="Razón social:"></vaadin-text-field><br>
-          <vaadin-text-field label="RFC:"></vaadin-text-field><br>
-          <vaadin-select label="Estatus">
-            <template>
-              <vaadin-list-box>
-                <vaadin-item>Activo</vaadin-item>
-                <vaadin-item>Inactivo</vaadin-item>
-              </vaadin-list-box>
-            </template>
-          </vaadin-select>
-          <button>Agregar</button>
+    <button  @click="${this.openDialog}">Agregar</button>
+
+     <paper-dialog id="addSocialName" modal>
+        <h2>Agregar Razón Social</h2>
+        <paper-dialog-scrollable>
+          <label for="businessName">Razón Social :</label>
+          <input  id="businessName" type="text"><br>
+          <label for="rfc">RFC :</label>
+          <input  id="rfc" type="text"><br>
+          <label for="status">Estatus:</label>
+          <select id="status">
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
+        </paper-dialog-scrollable>
+        <div class="buttons">
+        <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
+        <vaadin-button  @click="${this.send}"   dialog-confirm autofocus>Agregar</vaadin-button>
         </div>
-      </div>
+    </paper-dialog>
 
       `;
+    }
+    openDialog(){
+      this.shadowRoot.querySelector('#addSocialName').open();
     }
 }
 
