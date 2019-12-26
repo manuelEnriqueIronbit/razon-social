@@ -46,8 +46,8 @@ class CreateBusinessName extends LitElement {
           <input  id="rfc" type="text"><br>
           <label for="status">Estatus:</label>
           <select id="status">
-            <option value="Activo">Activo</option>
-            <option value="Inactivo">Inactivo</option>
+            <option value="active">Activo</option>
+            <option value="inactive">Inactivo</option>
           </select>
         </paper-dialog-scrollable>
         <div class="buttons">
