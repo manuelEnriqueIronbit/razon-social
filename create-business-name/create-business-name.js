@@ -16,23 +16,21 @@ class CreateBusinessName extends LitElement {
     super();
     this.hello = 'Hello';
   }
-  send(){
-    console.log("Inside send")
+    send(){
       const [businessNameInput , rfcInput] = this.shadowRoot.querySelectorAll('input');
-    const statuSelect= this.shadowRoot.querySelector('#status');
-    const properties ={
-      businessName : businessNameInput.value,
-      rfc : rfcInput.value,
-      status : statuSelect.options[statuSelect.selectedIndex].value
+      const statuSelect= this.shadowRoot.querySelector('#status');
+      const properties ={
+        businessName : businessNameInput.value,
+        rfc : rfcInput.value,
+        status : statuSelect.options[statuSelect.selectedIndex].value
+      }
+      businessNameInput.value ='';
+      rfcInput.value='';
+      statuSelect.value ='';
+      this.dispatchEvent (new CustomEvent('send-rfc-data',{
+        detail:properties
+      }));
     }
-    console.log(properties)
-    businessNameInput.value ='';
-    rfcInput.value='';
-    statuSelect.value ='';
-    this.dispatchEvent (new CustomEvent('send-rfc-data',{
-      detail:properties
-    }));
-  }
   render() {
     return html`
     <button  @click="${this.openDialog}">Agregar</button>

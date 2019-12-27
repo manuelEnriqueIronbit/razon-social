@@ -2,7 +2,6 @@ import { html, LitElement } from 'lit-element';
 import style from './card-business-name-styles.js';
 import '@vaadin/vaadin-icons/vaadin-icons.js';
 import '@polymer/paper-dialog/paper-dialog.js';
-
 import '@polymer/paper-button/paper-button.js';
 
 class CardBusinessName extends LitElement {
@@ -20,16 +19,12 @@ class CardBusinessName extends LitElement {
 
   constructor() {
     super();
-    this.businessNameData ={
-      companyName : '',
-      rfc:'',
-      estatus:''
-    }
+    this.businessNameData = this.businessName;
   }
 
   render() {
     return html`
-        <button  @click="${this.openDialog}"><iron-icon icon="vaadin:edit" @click="${this.editData}"></iron-icon></button>
+        <button  @click="${this.openDialog}"><img  src="/assets/acciones.png" @click="${this.editData}"/></button>
         <paper-dialog id="editSocialName" modal>
           <h2>Editar Razón Social</h2>
           <paper-dialog-scrollable>
@@ -45,16 +40,47 @@ class CardBusinessName extends LitElement {
           </paper-dialog-scrollable>
           <div class="buttons">
           <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
-          <vaadin-button  @click="${this.openDialog}"   dialog-confirm autofocus>Editar</vaadin-button>
+          <vaadin-button  @click="${this.updateData}"   dialog-confirm autofocus>Editar</vaadin-button>
           </div>
         </paper-dialog>
       `;
     }
     openDialog(){
-      this.shadowRoot.querySelector('#editSocialName').open();
+      //const data = this.bussines;
+      const dialog = this.shadowRoot.querySelector('#editSocialName')
+      //console.log(this.bussines )
+      let rfcInput = dialog.querySelector('#rfc');
+      let nameInput = dialog.querySelector('#businessName');
+      let selectStatus = dialog.querySelector('#status');
+      rfcInput.value = this.bussines.rfc;
+      nameInput.value = this.bussines.businessName;
+      selectStatus.value = this.bussines.status;
+
+      dialog.open();
+      //this.requestUpdate();
     }
-    editData(){
-      console.log("Inside edit data")
+    updateData(){      
+      const [businessNameInput , rfcInput] = this.shadowRoot.querySelectorAll('input');
+      const statuSelect= this.shadowRoot.querySelector('#status');
+      const properties ={
+        businessName : businessNameInput.value,
+        rfc : rfcInput.value,
+        status : statuSelect.options[statuSelect.selectedIndex].value
+      }
+      
+      this.bussines.businessName= properties.businessName;
+      this.bussines.rfc= properties.rfc;
+      this.bussines.status= properties.status;
+       businessNameInput.value ='';
+      rfcInput.value='';
+      statuSelect.value ='';
+      this.dispatchEvent (new CustomEvent('update-rfc-data',{
+        detail:properties
+      }));
+    }
+
+    __getNode(query){
+      return this.shadowRoot.querySelector(query);
     }
     
 }

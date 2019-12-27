@@ -23,4 +23,8 @@ th, td {
 table#t01 {
   width: 100%;
   background-color: #f1f1c1; }
+
+button {
+  background: none;
+  border: none; }
 `;

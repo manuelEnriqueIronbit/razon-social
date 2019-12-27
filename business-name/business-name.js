@@ -40,14 +40,14 @@ class BusinessName extends LitElement {
          return html`<tr id="${index}">
             <td>${businessName.businessName}</td>
             <td>${businessName.rfc}</td>
-              <td>${businessName.status ==="active"? html`<iron-icon icon="vaadin:check-circle-o"></iron-icon> ` : html`<iron-icon icon="vaadin:close-circle-o">${businessName.status}</iron-icon>`}</td>
+              <td>${businessName.status ==="active"? html`<img src="/assets/active.png"> ` : html`<iron-icon icon="vaadin:close-circle-o">${businessName.status}</iron-icon>`}</td>
               <td><card-business-name .bussines="${ businessName }"  @update-rfc-data="${this.updateData}"></card-business-name></td>
       </tr>`
       })}
       </tbody>
     </table>
     <div class="buttons">
-      <create-business-name @send-rfc-data="${this.insertData}"></create-business-name>
+      <create-business-name  @send-rfc-data="${this.insertData}"></create-business-name>
     </div>
     
       `;
@@ -59,9 +59,7 @@ class BusinessName extends LitElement {
       }]; 
     }
     updateData(event){
-     console.log(event)
-     console.log(this.businessNameList)
-    
+    this.requestUpdate();
     }
 }
 
