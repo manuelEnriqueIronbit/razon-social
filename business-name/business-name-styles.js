@@ -68,34 +68,4 @@ button {
   line-height: 19px;
   text-align: center;
   margin-top: 45px; }
-
-paper-dialog {
-  background-color: #FFFFFF;
-  border-radius: 23.76px;
-  box-shadow: 0 21px 62px 0 rgba(0, 0, 0, 0.1);
-  width: 70vh;
-  height: 245px; }
-  paper-dialog h2 {
-    margin-top: 22px;
-    color: #000000;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0.46px;
-    line-height: 20px;
-    text-align: center;
-    margin-bottom: 44px; }
-  paper-dialog div {
-    padding: 0 30px 15px; }
-    paper-dialog div label {
-      display: inline; }
-    paper-dialog div input, paper-dialog div select {
-      display: inline;
-      background-color: #EFEFEF;
-      border: 0.65px solid #EEEEEE;
-      border-radius: 3px;
-      height: 25px;
-      width: 278px;
-      padding: 0 8px; }
-    paper-dialog div #status {
-      width: 138px; }
 `;
