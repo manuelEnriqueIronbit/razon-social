@@ -36,12 +36,12 @@ class BusinessName extends LitElement {
         </tr>
       </thead>
       <tbody>
-      ${this.businessNameList.map(businessName => {
-         return html`<tr>
+      ${this.businessNameList.map((businessName,index) => {
+         return html`<tr id="${index}">
             <td>${businessName.businessName}</td>
             <td>${businessName.rfc}</td>
               <td>${businessName.status ==="active"? html`<iron-icon icon="vaadin:check-circle-o"></iron-icon> ` : html`<iron-icon icon="vaadin:close-circle-o">${businessName.status}</iron-icon>`}</td>
-              <td><card-business-name></card-business-name></td>
+              <td><card-business-name .bussines="${ businessName }"  @update-rfc-data="${this.updateRfcData}"></card-business-name></td>
       </tr>`
       })}
       </tbody>
@@ -53,6 +53,12 @@ class BusinessName extends LitElement {
       `;
     }
     insertData(event){
+      this.businessNameList = [...this.businessNameList, {
+        ...event.detail,
+        body:event.detail.info
+      }]; 
+    }
+    updateRfcData(event){
       this.businessNameList = [...this.businessNameList, {
         ...event.detail,
         body:event.detail.info
