@@ -26,7 +26,7 @@ class BusinessName extends LitElement {
 
     render() {
     return html`
-    <table>
+  <table>
       <thead>
         <tr>
           <th>Razón social</th>
