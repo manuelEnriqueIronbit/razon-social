@@ -41,6 +41,7 @@ class BusinessName extends LitElement {
     render() {
     return html`
      <paper-dialog id="addSocialName" modal>
+     <paper-button dialog-confirm autofocus><iron-icon icon="vaadin:close-circle"></iron-icon></paper-button>
         <h2>Agregar Razón Social</h2>
         <paper-dialog-scrollable>
         <div>
@@ -59,10 +60,7 @@ class BusinessName extends LitElement {
           </select>
         </div>
         </paper-dialog-scrollable>
-        <div class="buttons">
-        <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
         <vaadin-button  @click="${this.send}"   dialog-confirm autofocus>Agregar</vaadin-button>
-        </div>
     </paper-dialog>
     
     <table>
