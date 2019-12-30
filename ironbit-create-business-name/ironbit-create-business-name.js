@@ -1,6 +1,7 @@
 import { html, LitElement } from 'lit-element';
 import style from './ironbit-create-business-name-styles.js';
 import '@polymer/paper-dialog/paper-dialog.js';
+import  '@vaadin/vaadin-icons';
 
 class IronbitCreateBusinessName extends LitElement {
   static get properties() {
@@ -37,6 +38,7 @@ class IronbitCreateBusinessName extends LitElement {
          <button  @click="${this.openDialog}">Agregar</button>
           <paper-dialog id="addSocialName" modal>
             <vaadin-button  @click="${this.send}"   dialog-confirm autofocus>Agregar</vaadin-button>
+            <iron-icon icon="vaadin:close-circle" dialog-confirm autofocus></iron-icon>
             <h2>Agregar Razón Social</h2>
               <label for="businessName">Razón Social :</label>
               <input  id="businessName" type="text"><br>
@@ -47,7 +49,6 @@ class IronbitCreateBusinessName extends LitElement {
                 <option value="active">Activo</option>
                 <option value="inactive">Inactivo</option>
               </select>
-            <iron-icon icon="vaadin:close-circle" dialog-confirm autofocus></iron-icon>
           </paper-dialog>
       `;
     }
