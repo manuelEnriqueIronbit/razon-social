@@ -39,6 +39,7 @@ class IronbitCreateBusinessName extends LitElement {
           <paper-dialog id="addSocialName" modal>
             <vaadin-button  @click="${this.send}"   dialog-confirm autofocus>Agregar</vaadin-button>
             <iron-icon icon="vaadin:close-circle" dialog-confirm autofocus></iron-icon>
+
             <h2>Agregar Razón Social</h2>
               <label for="businessName">Razón Social :</label>
               <input  id="businessName" type="text"><br>

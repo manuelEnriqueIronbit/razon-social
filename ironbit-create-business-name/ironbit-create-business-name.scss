@@ -75,5 +75,18 @@ iron-icon {
   margin: 0;
   padding: 8px;
 }
+label {
+  display: inline;
+}
+
+input, select {
+  display: inline;
+  background-color: #EFEFEF;
+  border: 0.65px solid #EEEEEE;
+  border-radius: 3px;
+  height: 25px;
+  width: 278px;
+  padding: 0 8px;
+}
 
 }

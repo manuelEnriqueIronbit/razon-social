@@ -68,4 +68,14 @@ paper-dialog {
     right: 0;
     margin: 0;
     padding: 8px; }
+  paper-dialog label {
+    display: inline; }
+  paper-dialog input, paper-dialog select {
+    display: inline;
+    background-color: #EFEFEF;
+    border: 0.65px solid #EEEEEE;
+    border-radius: 3px;
+    height: 25px;
+    width: 278px;
+    padding: 0 8px; }
 `;
