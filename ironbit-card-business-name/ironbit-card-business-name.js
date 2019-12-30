@@ -22,10 +22,11 @@ class IronbitCardBusinessName extends LitElement {
 
   render() {
     return html`
-        <button  @click="${this.openDialog}"><img  src="/assets/acciones.png" @click="${this.editData}"/></button>
+        <img  class="pointer" src="/assets/acciones.png" @click="${this.editData , this.openDialog}" />  
         <paper-dialog id="editSocialName" modal>
+        <iron-icon icon="vaadin:close-circle" dialog-confirm autofocus></iron-icon>
+
           <h2>Editar Razón Social</h2>
-          <paper-dialog-scrollable>
             <label for="businessName">Razón Social :</label>
             <input  id="businessName" type="text"><br>
             <label for="rfc">RFC :</label>
@@ -35,11 +36,7 @@ class IronbitCardBusinessName extends LitElement {
               <option value="active">Activo</option>
               <option value="inactive">Inactivo</option>
             </select>
-          </paper-dialog-scrollable>
-          <div class="buttons">
-          <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
           <vaadin-button  @click="${this.updateData}"   dialog-confirm autofocus>Editar</vaadin-button>
-          </div>
         </paper-dialog>
       `;
       
