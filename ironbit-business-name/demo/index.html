@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module">
+        import '../ironbit-business-name.js';
+    </script>
+    <title>IronbitBusinessName</title>
+</head>
+<body>
+    
+    <style>
+        business-name{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;    
+        }
+    </style>
+        <ironbit-business-name></ironbit-business-name>
+    <script>
+        const businessNameComponent = document.querySelector('ironbit-business-name');
+        businessNameComponent.businessNameList =[{
+            businessName: "Grupo Slim",
+            rfc: "GS2892",
+            status: "active"
+        },
+        {
+            businessName: "D. Ex",
+            rfc: "RE3819",
+            status: "active"
+        },
+        {
+            businessName: "Grupo Slim",
+            rfc: "GS2892",
+            status: "active"
+        },
+        {
+            businessName: "Grupo Slim",
+            rfc: "GS2892",
+            status: "inactive"
+        }
+        
+        
+        ]
+        const newBusinessName = document.querySelector('ironbit-business-name');
+        newBusinessName.addEventListener('send-business-name-data', e =>{
+            console.table(e.detail);
+        })
+    </script>
+
+
+</body>
+</html>
